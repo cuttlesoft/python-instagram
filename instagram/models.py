@@ -53,13 +53,13 @@ class Media(ApiModel):
     def get_standard_resolution_url(self):
         if self.type == 'image':
             return self.images['standard_resolution'].url
-        else:
+        elif hasattr(self, 'videos'):
             return self.videos['standard_resolution'].url
 
     def get_low_resolution_url(self):
         if self.type == 'image':
             return self.images['low_resolution'].url
-        else:
+        elif hasattr(self, 'videos'):
             return self.videos['low_resolution'].url
 
 
